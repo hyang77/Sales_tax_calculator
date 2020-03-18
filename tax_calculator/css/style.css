@@ -1,0 +1,60 @@
+.container {
+  box-sizing: border-box;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Work Sans", sans-serif;
+  background-color: #b3c7d6ff;
+}
+
+.headersection {
+  margin: 0;
+  margin-bottom: 2em;
+  border-width: 5px;
+  padding: 1.5em;
+  display: block;
+  text-align: center;
+  background-color: #dcdcdc;
+}
+
+.main-content {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #002b80;
+  margin: auto;
+  padding: 1em;
+  display: block;
+  min-width: 290px;
+  max-width: 500px;
+  background-color: #7fa5ca;
+}
+
+label {
+  font-weight: bold;
+  text-align: right;
+  width: 80px;
+  display: inline-block;
+}
+
+#header2 {
+  font-size: 4rem;
+  font-family: "Anton", sans-serif;
+}
+
+.textsection {
+  margin: 2em;
+}
+
+.formsection {
+  display: inline-block;
+}
+
+footer {
+  padding-bottom: 2em;
+}
+img {
+  min-width: 300px;
+  max-width: 20%;
+  padding: 0.5em;
+}

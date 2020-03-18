@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Haoli-Sales Tax Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton|Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="headersection">
+        <header id="header2">Sales Tax Calculator</header>
+      </div>
+      <div class="main-content">
+        <div class="textsection">
+          <p>
+            Enter Subtotal and Tax Rate and click the Calculate button to show
+            the sales tax amount and the total. Click the clear button to clear
+            out all for form fields. Tax rate should be a percentage but do not
+            enter a % sign in th tax rate box.
+          </p>
+        </div>
+        <div class="formsection">
+          <label for="subtotal">Subtotal: </label>
+          <input type="text" id="subtotal" /><br /><br />
+          <label for="tax_rate">Tax Rate: </label>
+          <input type="text" id="tax_rate" /><br /><br />
+          <label for="sales_tax">Sales Tax:</label>
+          <input type="text" id="sales_tax" disabled /><br /><br />
+          <label for="total">Total:</label>
+          <input type="text" id="total" disabled /><br /><br />
+          <button id="bcalc">Calculate Tax and Total</button>
+          <button id="bclear">Clear</button>
+        </div>
+      </div>
+      <br />
+      <div class="image">
+        <img src="image/coffee.jpg" alt="coffee" />
+      </div>
+      <footer>&copy; 2020 Haoli Yang | hayng77@hawk.iit.edu</footer>
+      <script>
+        //initialize the event hadler functions with window object
+        window.addEventListener(
+          "load",
+          function() {
+            document
+              .getElementById("bcalc")
+              .addEventListener("click", calcTax, false);
+
+            document
+              .getElementById("bclear")
+              .addEventListener("click", clear, false);
+
+            console.log("page is fully loaded");
+          },
+          false
+        );
+
+        //this function will calculate the sales tax and total and display them in the textarea
+        function calcTax() {
+          //make sales tax and total textarea empty first
+          document.getElementById("sales_tax").value = "";
+          document.getElementById("total").value = "";
+          console.log("calc clicked");
+          var subtotal = document.getElementById("subtotal").value.trim();
+          var taxRate = document.getElementById("tax_rate").value.trim();
+          //basic validation
+          if (subtotal === "" || taxRate === "") {
+            alert("Subtotal or tax rate can't be empty!");
+          } else if (subtotal <= 0) {
+            alert("Subtotal can't be negative or zero value!");
+          } else if (taxRate <= 0 || taxRate > 20) {
+            alert(
+              "Tax rate should not be less than 0, greater than 20, or zero value!"
+            );
+          } else {
+            var salesTax = (subtotal * taxRate) / 100;
+            var total = parseFloat(subtotal) + salesTax;
+            document.getElementById("sales_tax").value = salesTax.toFixed(2);
+            document.getElementById("total").value = total.toFixed(2);
+          }
+        }
+
+        //this function will reset all the textarea to empty field
+        function clear() {
+          console.log("clear clicked!");
+          document.getElementById("subtotal").value = "";
+          document.getElementById("tax_rate").value = "";
+          document.getElementById("sales_tax").value = "";
+          document.getElementById("total").value = "";
+          document.getElementById("subtotal").focus();
+        }
+      </script>
+    </div>
+  </body>
+</html>
